@@ -6,7 +6,7 @@
 ## Installation
 
 ```sh
-# In order to not interfere with the system python installation, we will use venv to have a virtual environment
+# In order to not interfere with the system python, we will create a virtual enviroment with venv
 python -m venv env
 # activate the created virtual environment
 source env/bin/activate
@@ -17,10 +17,18 @@ pip install -r requirements.txt
 ## Run unittests
 
 ```sh
-# change directory to pytest
-cd pytest
 # Run the tests
 python -m pytest tests
 # Run the tests with execution times
 python -m pytest tests --durations=0 -vv
+```
+
+## Howto use the merge function
+
+in order to use the merge function, you have to import it
+```python
+from CodingChallange.merge import merge
+
+intervals = [[25,30], [2,19], [14, 23], [4,8]]
+merged_intervals = merge(intervals) # => [[2,23], [25,30]]
 ```
