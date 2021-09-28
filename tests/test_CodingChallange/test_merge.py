@@ -1,5 +1,5 @@
 import pytest
-from CodingChallange.merge import merge
+from CodingChallenge.merge import merge
 
 def test_merge_example() -> None:
     # The expected result from the example provided
