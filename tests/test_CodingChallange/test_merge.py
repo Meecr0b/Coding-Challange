@@ -31,3 +31,7 @@ def test_merge_maximun_overlapping_intervals() -> None:
     half_intervals_size = intervals_size/2
     intervals = [[x, int(half_intervals_size + x)] for x in range(1, int(half_intervals_size))]
     assert list(merge(intervals)) == [[1,intervals_size-1]]
+
+def test_merge_empty_intervals():
+    intervals = []
+    assert list(merge(intervals)) == []

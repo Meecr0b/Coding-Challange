@@ -1,16 +1,16 @@
 from typing import Generator
 
-def merge(intervals: list) -> list:
-    response = []
+def merge(intervals: list) -> Generator[list, None, None]:
     intervals.sort()
-    start, end = intervals[0]
-    for start_n, end_n in intervals[1:]:
-        if start_n <= end:
-            if end_n > end:
-                end = end_n
-        else:
-            response.append([start, end])
-            start = start_n
-            end = end_n
-    response.append([start, end])
-    return response
+
+    if len(intervals):
+        start, end = intervals[0]
+        for interval in intervals[1:]:
+            if interval[0] <= end:
+                if interval[1] > end:
+                    end = interval[1]
+            else:
+                yield [start, end]
+                start = interval[0]
+                end = interval[1]
+        yield [start, end]
